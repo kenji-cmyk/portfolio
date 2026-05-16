@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
-import { words } from "../constants";
+import { resumeInfo, words } from "../constants";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
 
 const Hero = () => {
@@ -22,12 +22,11 @@ const Hero = () => {
       </div>
 
       <div className="hero-layout">
-        {/* LEFT: Hero Content */}
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
               <h1>
-                Shaping
+                Building
                 <span className="slide">
                   <span className="wrapper">
                     {words.map((word, index) => (
@@ -37,7 +36,7 @@ const Hero = () => {
                       >
                         <img
                           src={word.imgPath}
-                          alt="person"
+                          alt=""
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
                         />
                         <span>{word.text}</span>
@@ -46,24 +45,38 @@ const Hero = () => {
                   </span>
                 </span>
               </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
+              <h1>for Scalable</h1>
+              <h1>Backend Products</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
+            <p className="text-white-50 md:text-lg relative z-10 pointer-events-none max-w-3xl leading-8">
+              Hi, I'm Nguyen Anh Khoi, a Backend Developer
+            </p>
+            <p className="text-white-50 md:text-base relative z-10 pointer-events-none max-w-3xl leading-7">
+              I work with authentication and authorization systems including
+              JWT, 2FA, and RBAC, and I am interested in Clean Architecture,
+              backend performance optimization, distributed systems, DevOps,
+              fintech backend engineering, and AI-powered architectures.
             </p>
 
-            <Button
-              text="See My Work"
-              className="md:w-80 md:h-16 w-60 h-12"
-              id="counter"
-            />
+            <div className="relative z-10 flex flex-col sm:flex-row gap-4">
+              <Button
+                text="See My Projects"
+                className="md:w-80 md:h-16 w-60 h-12"
+                id="counter"
+              />
+              <a
+                href={resumeInfo.filePath}
+                target="_blank"
+                rel="noreferrer"
+                className="md:w-56 md:h-16 w-60 h-12 border border-black-50 bg-black-100 rounded-lg flex-center text-white-50 font-semibold transition-colors duration-300 hover:bg-black-50"
+              >
+                Resume
+              </a>
+            </div>
           </div>
         </header>
 
-        {/* RIGHT: 3D Model or Visual */}
         <figure>
           <div className="hero-3d-layout">
             <HeroExperience />

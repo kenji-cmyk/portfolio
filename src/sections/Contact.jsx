@@ -4,9 +4,16 @@ import emailjs from "@emailjs/browser";
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
 
+const emailJsConfig = {
+  serviceId: import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+};
+
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -20,22 +27,42 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+
+    const isEmailJsConfigured = Object.values(emailJsConfig).every(Boolean);
+
+    if (!isEmailJsConfigured) {
+      setStatus({
+        type: "error",
+        message:
+          "Email service is not configured yet. Please add the EmailJS keys in .env.",
+      });
+      return;
+    }
+
+    setLoading(true);
+    setStatus(null);
 
     try {
       await emailjs.sendForm(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
         formRef.current,
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        emailJsConfig.publicKey
       );
 
-      // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      setStatus({
+        type: "success",
+        message: "Thanks! Your message has been sent successfully.",
+      });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      setStatus({
+        type: "error",
+        message: "Sorry, the message could not be sent. Please try again.",
+      });
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -43,8 +70,8 @@ const Contact = () => {
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch - Let's Connect"
+          sub="Have questions or ideas? Let's talk."
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
@@ -62,7 +89,7 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What's your name?"
                     required
                   />
                 </div>
@@ -75,7 +102,7 @@ const Contact = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder="What's your email address?"
                     required
                   />
                 </div>
@@ -93,7 +120,23 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit">
+                {status && (
+                  <p
+                    className={`rounded-md border px-4 py-3 text-sm ${
+                      status.type === "success"
+                        ? "border-green-500/40 bg-green-500/10 text-green-200"
+                        : "border-red-500/40 bg-red-500/10 text-red-200"
+                    }`}
+                  >
+                    {status.message}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="disabled:cursor-not-allowed disabled:opacity-70"
+                >
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">

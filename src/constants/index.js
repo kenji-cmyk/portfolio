@@ -1,7 +1,7 @@
 const navLinks = [
   {
-    name: "Work",
-    link: "#work",
+    name: "Projects",
+    link: "#projects",
   },
   {
     name: "Experience",
@@ -12,260 +12,322 @@ const navLinks = [
     link: "#skills",
   },
   {
-    name: "Testimonials",
-    link: "#testimonials",
+    name: "Resume",
+    link: "/resume/nguyen-anh-khoi-cv.pdf",
+    newTab: true,
   },
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "APIs", imgPath: "/images/code.svg" },
+  { text: "Systems", imgPath: "/images/concepts.svg" },
+  { text: "Workflows", imgPath: "/images/ideas.svg" },
+  { text: "Services", imgPath: "/images/designs.svg" },
+  { text: "APIs", imgPath: "/images/code.svg" },
+  { text: "Systems", imgPath: "/images/concepts.svg" },
+  { text: "Workflows", imgPath: "/images/ideas.svg" },
+  { text: "Services", imgPath: "/images/designs.svg" },
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Satisfied Clients" },
-  { value: 108, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { label: "Years of Experience", value: "1+" },
+  { label: "Projects Completed", value: "15+" },
+  { label: "Age", value: "22" },
+  { label: "Technologies Mastered", value: "10+" },
+  { label: "Code Commits", value: "1000+" },
+  { label: "Coffee Consumed", value: "∞" },
 ];
 
-const logoIconsList = [
-  {
-    imgPath: "/images/logos/company-logo-1.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-2.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-3.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-4.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-5.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-6.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-7.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-10.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
-  },
-];
+const logoIconsList = [];
 
 const abilities = [
   {
     imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    title: "Scalable Backend Systems",
+    desc: "Building Java and Spring Boot services with clean REST APIs, SQL-backed business logic, caching, and production-focused module boundaries.",
   },
   {
     imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    title: "Secure API Design",
+    desc: "Implementing JWT authentication, RBAC authorization, validation, and maintainable access-control flows for protected backend resources.",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "Distributed Workflows",
+    desc: "Designing asynchronous and real-time communication with RabbitMQ, Kafka, gRPC, WebSocket, Redis, Docker, and service orchestration.",
   },
 ];
 
 const techStackImgs = [
   {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
+    name: "Java",
   },
   {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
+    name: "Spring Boot",
   },
   {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
+    name: "Python",
   },
   {
-    name: "Interactive Developer",
-    imgPath: "/images/logos/three.png",
+    name: "PostgreSQL",
   },
   {
-    name: "Project Manager",
-    imgPath: "/images/logos/git.svg",
+    name: "Docker",
   },
 ];
 
-const techStackIcons = [
+const techStackIcons = techStackImgs;
+
+const backendSkillGroups = [
   {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
+    title: "Backend Development",
+    summary:
+      "Java and Spring Boot are my main backend stack for building REST APIs, service layers, domain logic, validation, and integration modules. I structure backend code with clear boundaries between controller, application service, domain logic, and persistence.",
+    items: [
+      "Java",
+      "Spring Boot",
+      "REST API",
+      "Python",
+      "Golang",
+      "Service Layer Design",
+    ],
   },
   {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
+    title: "Clean Architecture",
+    summary:
+      "I organize backend modules around use cases and business rules, keeping domain logic independent from frameworks, databases, and delivery mechanisms. This makes APIs easier to test, extend, and maintain as requirements grow.",
+    items: [
+      "Use Case Layer",
+      "Domain Modeling",
+      "DTO Mapping",
+      "Repository Pattern",
+      "Dependency Inversion",
+      "Separation of Concerns",
+    ],
   },
   {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
+    title: "Microservice Design",
+    summary:
+      "I design services with clear ownership, independent responsibilities, and communication patterns that match the workflow. I focus on service boundaries, asynchronous processing, API contracts, and resilient integration between backend services.",
+    items: [
+      "Service Boundaries",
+      "API Contracts",
+      "Inter-service Communication",
+      "Async Processing",
+      "Resilient Workflows",
+      "Service Orchestration",
+    ],
   },
   {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
+    title: "API Security",
+    summary:
+      "I work on secure API flows including authentication, authorization, role-based access control, protected resources, and request validation for backend systems that need clear permission boundaries.",
+    items: [
+      "JWT Authentication",
+      "Spring Security",
+      "RBAC",
+      "Authorization Rules",
+      "Input Validation",
+      "2FA Flow",
+    ],
   },
   {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
+    title: "Database and Cache",
+    summary:
+      "I design relational schemas, write optimized SQL queries, add indexing where needed, and use Redis for caching, session-like data, temporary state, and reducing repeated database work.",
+    items: [
+      "MS SQL Server",
+      "PostgreSQL",
+      "Redis",
+      "Schema Design",
+      "Query Optimization",
+      "Indexing",
+    ],
+  },
+  {
+    title: "Messaging and Realtime",
+    summary:
+      "I build asynchronous and event-driven flows with queues and streaming tools, and connect services through RabbitMQ, Kafka, gRPC, and WebSocket depending on latency and delivery requirements.",
+    items: [
+      "RabbitMQ",
+      "Kafka",
+      "gRPC",
+      "WebSocket",
+      "Event-driven Architecture",
+      "Message Queue Integration",
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: "EMIS Voice Detection",
+    type: "Commercial Project",
+    year: "2026",
+    description:
+      "Automated bot for meeting platforms featuring real-time recording and speaker diarization. Multi-service architecture manages bot triggers and high-volume audio processing via message queues.",
+    techStack: [
+      "Golang",
+      "Python",
+      "RabbitMQ",
+      "Whisper AI",
+      "Playwright",
+      "Docker",
+    ],
+    image: "/images/emis.png",
+    links: {
+      github: "https://github.com/kenji-cmyk",
+      demo: "#",
+    },
+    details: {
+      whatIDid: [
+        "Built automated bot system for Google Meet and Zoom using Playwright",
+        "Implemented real-time audio recording and processing pipeline",
+        "Integrated Whisper AI for speaker diarization and transcription",
+        "Designed multi-service architecture with RabbitMQ message queues",
+      ],
+      performance: [
+        "Optimized audio processing to handle 50+ concurrent meetings",
+        "Implemented efficient queue management for high-volume processing",
+        "Reduced transcription latency by 40% through parallel processing",
+        "Used Golang for high-performance bot orchestration",
+      ],
+      architecture: [
+        "Microservices architecture with Golang and Python services",
+        "Event-driven design using RabbitMQ for service communication",
+        "Containerized deployment with Docker for scalability",
+        "Separation of concerns across bot control, audio processing, and AI inference",
+      ],
+    },
+  },
+  {
+    title: "Carbon Credit Marketplace",
+    type: "Commercial Project",
+    year: "2025",
+    description:
+      "Trading platform for EV carbon credits with buyers, sellers, and independent auditors. Built access control, real-time journey data synchronization, and credit pricing logic.",
+    techStack: [
+      "Java",
+      "Spring Boot",
+      "MS SQL Server",
+      "REST API",
+      "RBAC",
+      "Docker",
+    ],
+    image: "/images/ccmkp.png",
+    links: {
+      github: "https://github.com/kenji-cmyk",
+      demo: "#",
+    },
+    details: {
+      whatIDid: [
+        "Developed RESTful APIs for the carbon credit trading platform",
+        "Implemented Role-Based Access Control system",
+        "Built real-time journey data synchronization module",
+        "Created complex credit pricing calculation engine",
+      ],
+      performance: [
+        "Optimized SQL queries for real-time data synchronization",
+        "Implemented database indexing reducing query time by 50%",
+        "Used connection pooling for efficient database access",
+        "Cached frequently accessed pricing data with Redis",
+      ],
+      architecture: [
+        "Clean Architecture with Spring Boot",
+        "Layered architecture across controller, service, and repository",
+        "RBAC implementation with Spring Security",
+        "RESTful API design following OpenAPI specifications",
+      ],
+    },
+  },
+  {
+    title: "Premier League Statistics",
+    type: "Personal Project",
+    year: "2025",
+    description:
+      "Data-driven dashboard for tracking English Premier League match and player performance with real-time statistics aggregation for 20+ teams.",
+    techStack: ["React", "Java", "Spring Boot", "REST API", "PostgreSQL"],
+    image: "/images/pms.png",
+    links: {
+      github: "https://github.com/kenji-cmyk",
+      demo: "#",
+    },
+    details: {
+      whatIDid: [
+        "Built full-stack dashboard with React frontend and Spring Boot backend",
+        "Developed REST APIs for match and player statistics",
+        "Implemented data aggregation for 20+ teams and 500+ players",
+        "Created responsive UI with real-time data visualization",
+      ],
+      performance: [
+        "Optimized PostgreSQL queries with proper indexing",
+        "Implemented pagination for large datasets",
+        "Used React Query for efficient data fetching and caching",
+        "Reduced initial load time by 60% with code splitting",
+      ],
+      architecture: [
+        "RESTful API architecture with Spring Boot",
+        "PostgreSQL database with normalized schema",
+        "React component-based architecture",
+        "Separation of concerns across API, business logic, and data access",
+      ],
+    },
   },
 ];
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    review:
+      "Five-month backend developer experience at THD Cybersecurity, focused on secure API design, authentication flows, service orchestration, and AI-related backend modules.",
+    title: "Backend Developer - THD Cybersecurity",
+    date: "5 months",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
-    ],
-  },
-  {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
-    responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
-    ],
-  },
-  {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Designed and implemented RESTful APIs for backend modules with maintainable request validation, service logic, and data flow.",
+      "Implemented authentication, authorization, and RBAC features to control user access across protected resources.",
+      "Worked with Redis and RabbitMQ to support caching, asynchronous processing, and communication between backend services.",
+      "Built backend orchestration logic where the backend acted as a central service layer calling and coordinating downstream services.",
+      "Integrated AI embedding workflows into backend features, preparing data for semantic search and AI-powered processing.",
     ],
   },
 ];
 
-const expLogos = [
-  {
-    name: "logo1",
-    imgPath: "/images/logo1.png",
-  },
-  {
-    name: "logo2",
-    imgPath: "/images/logo2.png",
-  },
-  {
-    name: "logo3",
-    imgPath: "/images/logo3.png",
-  },
-];
+const expLogos = [];
 
-const testimonials = [
-  {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
-    review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
-  },
-  {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
-    review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
-  },
-  {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
-    review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
-  },
-  {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
-  },
-];
+const testimonials = [];
+
+const resumeInfo = {
+  title: "Nguyen Anh Khoi Resume",
+  fileName: "nguyen-anh-khoi-cv.pdf",
+  filePath: "/resume/nguyen-anh-khoi-cv.pdf",
+};
 
 const socialImgs = [
   {
-    name: "insta",
+    name: "Instagram",
     imgPath: "/images/insta.png",
+    url: "https://www.instagram.com/kna23_1/",
   },
   {
-    name: "fb",
+    name: "Facebook",
     imgPath: "/images/fb.png",
+    url: "https://www.facebook.com/profile.php?id=100092984906364",
   },
   {
-    name: "x",
-    imgPath: "/images/x.png",
+    name: "GitHub",
+    imgPath: "/images/github.svg",
+    url: "https://github.com/kenji-cmyk",
   },
   {
-    name: "linkedin",
+    name: "LinkedIn",
     imgPath: "/images/linkedin.png",
+    url: "https://www.linkedin.com/in/nguy%E1%BB%85n-kh%C3%B4i-242a67327/",
   },
 ];
 
 export {
   words,
   abilities,
+  projects,
   logoIconsList,
   counterItems,
   expCards,
@@ -274,5 +336,7 @@ export {
   socialImgs,
   techStackIcons,
   techStackImgs,
+  backendSkillGroups,
+  resumeInfo,
   navLinks,
 };
