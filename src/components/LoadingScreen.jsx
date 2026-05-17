@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useProgress } from "@react-three/drei";
 
-import { abilities, projects, socialImgs, words } from "../constants";
+import { words } from "../constants";
 
 const loaderText = "ANH KHOI";
 const minimumLoadTime = 1800;
@@ -20,7 +19,6 @@ const preloadImage = (src) =>
   });
 
 const LoadingScreen = ({ onComplete }) => {
-  const { active, loaded, progress, total } = useProgress();
   const [pageReady, setPageReady] = useState(false);
   const [imageProgress, setImageProgress] = useState(0);
   const [textAnimationDone, setTextAnimationDone] = useState(false);
@@ -30,11 +28,7 @@ const LoadingScreen = ({ onComplete }) => {
     const sources = [
       "/images/bg.png",
       "/images/arrow-down.svg",
-      "/images/star.png",
       ...words.map((word) => word.imgPath),
-      ...abilities.map((ability) => ability.imgPath),
-      ...projects.map((project) => project.image),
-      ...socialImgs.map((social) => social.imgPath),
     ];
 
     return [...new Set(sources.filter(Boolean))];
@@ -82,9 +76,7 @@ const LoadingScreen = ({ onComplete }) => {
   }, [imageSources]);
 
   useEffect(() => {
-    const modelReady = !active && (total === 0 || loaded >= total || progress >= 100);
-
-    if (!pageReady || !modelReady || !textAnimationDone) {
+    if (!pageReady || !textAnimationDone) {
       return undefined;
     }
 
@@ -100,12 +92,9 @@ const LoadingScreen = ({ onComplete }) => {
       window.clearTimeout(leaveTimer);
       window.clearTimeout(completeTimer);
     };
-  }, [active, loaded, onComplete, pageReady, progress, textAnimationDone, total]);
+  }, [onComplete, pageReady, textAnimationDone]);
 
-  const modelProgress = total === 0 && !active ? 100 : progress;
-  const combinedProgress = pageReady
-    ? 100
-    : Math.min(99, Math.round(modelProgress * 0.65 + imageProgress * 0.35));
+  const combinedProgress = pageReady ? 100 : Math.min(99, imageProgress);
 
   return (
     <div className={`loading-screen ${isLeaving ? "is-leaving" : ""}`}>
@@ -127,7 +116,7 @@ const LoadingScreen = ({ onComplete }) => {
       </div>
 
       <div className="loading-status" aria-hidden="true">
-        {combinedProgress}% {active ? "loading" : "ready"}
+        {combinedProgress}% {pageReady ? "ready" : "loading"}
       </div>
     </div>
   );

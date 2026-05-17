@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
-import ContactExperience from "../components/models/contact/ContactExperience";
 
 const emailJsConfig = {
   serviceId: import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -43,7 +41,9 @@ const Contact = () => {
     setStatus(null);
 
     try {
-      await emailjs.sendForm(
+      const emailjs = await import("@emailjs/browser");
+
+      await emailjs.default.sendForm(
         emailJsConfig.serviceId,
         emailJsConfig.templateId,
         formRef.current,
@@ -151,8 +151,14 @@ const Contact = () => {
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+            <div className="bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden">
+              <img
+                src="/images/3d.png"
+                alt="3D workspace illustration"
+                loading="lazy"
+                decoding="async"
+                className="h-full min-h-96 w-full object-contain p-6 md:p-10"
+              />
             </div>
           </div>
         </div>

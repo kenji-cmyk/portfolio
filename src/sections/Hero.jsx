@@ -1,12 +1,24 @@
+import { lazy, Suspense } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import { resumeInfo, words } from "../constants";
-import HeroExperience from "../components/models/hero_models/HeroExperience";
+import useInView from "../hooks/useInView";
+import useHeroCanvasActive from "../hooks/useHeroCanvasActive";
+
+const HeroExperience = lazy(() =>
+  import("../components/models/hero_models/HeroExperience")
+);
 
 const Hero = () => {
+  const [hero3dRef, shouldRenderHero3d] = useInView({
+    rootMargin: "200px",
+    once: false,
+  });
+  const isHeroCanvasActive = useHeroCanvasActive();
+
   useGSAP(() => {
     gsap.fromTo(
       ".hero-text h1",
@@ -78,8 +90,12 @@ const Hero = () => {
         </header>
 
         <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
+          <div ref={hero3dRef} className="hero-3d-layout">
+            {shouldRenderHero3d && isHeroCanvasActive && (
+              <Suspense fallback={null}>
+                <HeroExperience />
+              </Suspense>
+            )}
           </div>
         </figure>
       </div>

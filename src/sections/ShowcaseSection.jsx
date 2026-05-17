@@ -53,7 +53,12 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={primaryProjectRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src={primaryProject.image} alt={primaryProject.title} />
+              <img
+                src={primaryProject.image}
+                alt={primaryProject.title}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="text-content">
               <div className="badges">
@@ -80,7 +85,12 @@ const AppShowcase = () => {
                 key={project.title}
               >
                 <div className="image-wrapper">
-                  <img src={project.image} alt={project.title} />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="badges">
                   <span>{project.type}</span>
