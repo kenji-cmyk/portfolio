@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -13,6 +14,7 @@ const HeroExperience = lazy(() =>
 );
 
 const Hero = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const [hero3dRef, shouldRenderHero3d] = useInView({
     rootMargin: "200px",
     once: false,
@@ -89,9 +91,9 @@ const Hero = () => {
           </div>
         </header>
 
-        <figure>
+        <figure className="hidden md:block">
           <div ref={hero3dRef} className="hero-3d-layout">
-            {shouldRenderHero3d && isHeroCanvasActive && (
+            {!isMobile && shouldRenderHero3d && isHeroCanvasActive && (
               <Suspense fallback={null}>
                 <HeroExperience />
               </Suspense>

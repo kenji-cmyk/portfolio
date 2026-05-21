@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
-import GoLogo from "../components/GoLogo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,60 +66,17 @@ const Experience = () => {
           <div className="relative z-50 xl:space-y-32 space-y-10">
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
-                <aside className="experience-company-card">
-                  <div>
-                    <p className="experience-company-label">Company</p>
-                    <h3>THD Cybersecurity</h3>
-                    <p className="experience-company-summary">
-                      A cybersecurity-focused company where I worked on secure
-                      backend modules, authentication flows, service
-                      orchestration, caching, messaging, and AI-related backend
-                      features.
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="experience-company-tags">
-                      <span>Cybersecurity</span>
-                      <span>Backend APIs</span>
-                      <span>AI Modules</span>
-                    </div>
-                    <div className="experience-company-logo">
-                      <GoLogo className="h-10 w-20" />
-                    </div>
-                  </div>
-                </aside>
-
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <GoLogo className="h-6 w-10 md:h-10 md:w-16" />
-                      </div>
-                      <div>
-                        <h1 className="font-semibold text-3xl">
-                          {card.title}
-                        </h1>
-                        <p className="my-5 text-white-50">{card.date}</p>
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
-                          {card.responsibilities.map(
-                            (responsibility, index) => (
-                              <li key={index} className="text-lg">
-                                {responsibility}
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                <div className="expText experience-content">
+                  <h1 className="font-semibold text-3xl">{card.title}</h1>
+                  <p className="my-5 text-white-50">{card.date}</p>
+                  <p className="text-[#839CB5] italic">Responsibilities</p>
+                  <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                    {card.responsibilities.map((responsibility, index) => (
+                      <li key={index} className="text-lg">
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

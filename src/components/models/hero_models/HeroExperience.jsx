@@ -20,14 +20,15 @@ const HeroExperience = () => {
     >
       {/* deep blue ambient */}
       <ambientLight intensity={0.2} color="#1a1a40" />
-      {/* Configure OrbitControls to disable panning and control zoom based on device type */}
+      {/* Keep the model decorative so wheel/touch scrolling always controls the page. */}
       <OrbitControls
-        enablePan={false} // Prevents panning of the scene
-        enableZoom={!isTablet} // Disables zoom on tablets
-        maxDistance={20} // Maximum distance for zooming out
-        minDistance={5} // Minimum distance for zooming in
-        minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-        maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        enablePan={false}
+        enableZoom={false}
+        enableRotate={!isTablet}
+        maxDistance={20}
+        minDistance={5}
+        minPolarAngle={Math.PI / 5}
+        maxPolarAngle={Math.PI / 2}
       />
 
       <Suspense fallback={null}>
