@@ -1,6 +1,7 @@
 const TechLogo = ({ name, className }) => {
   const props = {
     className,
+    "data-logo": name,
     viewBox: "0 0 128 128",
     role: "img",
     "aria-label": `${name} logo`,

@@ -301,6 +301,10 @@ section {
     @apply border border-black-50 bg-black-100;
   }
 
+  .tech-card {
+    @apply min-w-0 h-full;
+  }
+
   .marquee-item {
     @apply md:w-40 w-32;
   }
@@ -350,23 +354,32 @@ section {
   }
 
   .tech-card-content {
-    @apply flex flex-col justify-center items-center gap-5 min-h-64 md:min-h-72 p-6 overflow-hidden relative z-10;
+    @apply flex min-h-64 flex-col items-center justify-center gap-8 p-6 overflow-hidden relative z-10 md:min-h-72;
 
     & p {
-      @apply text-lg 2xl:text-2xl font-semibold text-white-50 text-center;
+      @apply w-full text-lg 2xl:text-2xl font-semibold text-white-50 text-center leading-tight;
     }
   }
 
   .tech-grid {
-    @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
+    @apply grid grid-cols-1 items-stretch gap-5 mt-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:gap-7 xl:gap-8;
   }
 
   .tech-icon-wrapper {
-    @apply flex justify-center items-center w-28 h-28 md:w-32 md:h-32 relative;
+    @apply flex shrink-0 justify-center items-center w-28 h-28 md:w-32 md:h-32 mx-auto relative;
+    line-height: 0;
   }
 
   .tech-stack-icon {
-    @apply max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-110;
+    @apply block max-h-24 max-w-24 md:max-h-28 md:max-w-28 object-contain transition-transform duration-300 group-hover:scale-110;
+  }
+
+  .tech-stack-icon[data-logo="Java"] {
+    @apply mt-1;
+  }
+
+  .tech-stack-icon[data-logo="Docker"] {
+    @apply mt-2;
   }
 
   .counter-marquee-section {
