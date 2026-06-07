@@ -13,7 +13,7 @@ const navLinks = [
   },
   {
     name: "Resume",
-    link: "/resume/nguyen-anh-khoi-cv.pdf",
+    link: "/resume/cv.pdf",
     newTab: true,
   },
 ];
@@ -297,8 +297,8 @@ const testimonials = [];
 
 const resumeInfo = {
   title: "Nguyen Anh Khoi Resume",
-  fileName: "nguyen-anh-khoi-cv.pdf",
-  filePath: "/resume/nguyen-anh-khoi-cv.pdf",
+  fileName: "cv.pdf",
+  filePath: "/resume/cv.pdf",
 };
 
 const socialImgs = [
