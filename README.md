@@ -1,142 +1,160 @@
-<div align="center">
-  <br />
-    <a href="https://www.youtube.com/watch?v=E-fdPfRxkzQ" target="_blank">
-      <img src="public/images/readme.png" alt="Project Banner">
-    </a>
-  <br />
+# 3D Backend Portfolio
 
-  <div>
-    <img src="https://img.shields.io/badge/-Three.js-black?style=for-the-badge&logo=three.js&logoColor=white" />
-    <img src="https://img.shields.io/badge/-GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  </div>
+Personal portfolio website for Nguyen Anh Khoi, focused on backend engineering, scalable APIs, distributed workflows, and selected project case studies.
 
-  <h3 align="center">Interactive 3D Portfolio Website</h3>
+The application is built with Vite, React 19, Tailwind CSS 4, GSAP, and React Three Fiber. It combines a lightweight 3D hero scene with scroll-triggered sections for projects, backend skills, experience, resume access, social links, and an EmailJS-powered contact form.
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
-</div>
+## Contents
 
-## 📋 <a name="table">Table of Contents</a>
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Environment Variables](#environment-variables)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Content Configuration](#content-configuration)
+- [Assets](#assets)
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-5. 🔗 [Assets & Snippets](#links)
-6. 🚀 [More](#more)
+## Overview
 
-## ⚠️ Tutorial
+This portfolio presents backend-oriented work rather than a generic frontend showcase. The source content currently highlights:
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
+- Backend API and service development with Java and Spring Boot
+- Clean Architecture, repository boundaries, DTO mapping, and service layer design
+- API security with JWT, Spring Security, RBAC, authorization rules, validation, and 2FA flows
+- Messaging and realtime systems with RabbitMQ, Kafka, gRPC, WebSocket, Redis, and Docker
+- Projects including EMIS Voice Detection, Carbon Credit Marketplace, and Premier League Statistics
+- Resume download from `public/resume/cv.pdf`
 
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
+## Features
 
-<a href="https://www.youtube.com/watch?v=E-fdPfRxkzQ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
+- Responsive landing page with fixed navigation and smooth section anchors
+- Animated hero copy with backend-focused keywords
+- Lazy-loaded 3D hero experience for desktop devices
+- Loading screen before the main application shell is revealed
+- Project showcase with images, tags, years, and short case-study descriptions
+- Backend skill grid covering architecture, security, database, cache, messaging, and realtime systems
+- Experience section for backend developer work at THD Cybersecurity
+- Contact form with EmailJS integration and clear success/error states
+- Social links for Instagram, Facebook, GitHub, and LinkedIn
 
-## <a name="introduction">🤖 Introduction</a>
+## Tech Stack
 
-The 3D Portfolio project is a highly engaging personal website that features animated 3D scenes, smooth camera transitions, interactive model showcases, and responsive design. It’s ideal for developers, designers, or freelancers looking to stand out in the digital crowd.
-
-If you're getting started and need assistance or face any bugs, join our active Discord community with over **50k+** members. It's a place where people help each other out.
-
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
-
-## <a name="tech-stack">⚙️ Tech Stack</a>
-
+- React 19
+- Vite 6
+- Tailwind CSS 4
 - Three.js
 - React Three Fiber
 - Drei
 - GSAP
-- Tailwind CSS
-- Vite
-- React 19
+- EmailJS
+- ESLint
 
-## <a name="features">🔋 Features</a>
+## Project Structure
 
-### Features of the 3D Portfolio Project
-
-👉 Animated 3D models and reveal animations
-
-👉 Realistic lighting and shadows
-
-👉 GSAP-powered scroll interactions
-
-👉 Responsive design with Tailwind CSS and Flexbox/Grid
-
-👉 Micro Interactions
-
-👉 Multi-section layout (About, Projects, Contact)
-
-👉 Mobile optimized 3D experience
-
-and many more, including code architecture and reusability.
-
-## <a name="quick-start">🤸 Quick Start</a>
-
-Follow these steps to set up the project locally on your machine.
-
-**Prerequisites**
-
-Make sure you have the following installed on your machine:
-
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
-
-**Cloning the Repository**
-
-```bash
-git clone https://github.com/adrianhajdin/3d-portfolio.git
-cd 3d-portfolio
+```text
+.
+|-- public/
+|   |-- images/          Static image assets used by sections
+|   |-- models/          GLB models for 3D scenes and tech visuals
+|   `-- resume/cv.pdf    Public resume file
+|-- src/
+|   |-- components/      Reusable UI and 3D model components
+|   |-- constants/       Portfolio content, navigation, projects, skills, links
+|   |-- hooks/           Viewport and hero canvas lifecycle hooks
+|   |-- sections/        Page sections: hero, projects, skills, experience, contact
+|   |-- App.jsx          Application composition and lazy-loaded sections
+|   |-- main.jsx         React entry point
+|   `-- index.css        Tailwind theme, layout, animation, and component styles
+|-- .env.example         EmailJS environment variable template
+|-- package.json         Scripts and dependencies
+`-- vite.config.js       Vite configuration
 ```
 
-**Installation**
+## Environment Variables
 
-Install the project dependencies using npm:
+The contact form uses EmailJS. Create a `.env` file in the project root:
+
+```env
+VITE_APP_EMAILJS_SERVICE_ID=service_xxxxx
+VITE_APP_EMAILJS_TEMPLATE_ID=template_xxxxx
+VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+If these values are not configured, the contact form stays usable visually but displays an error message instead of sending email.
+
+## Getting Started
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-**Set Up Environment Variables**
-
-Create a new file named `.env` in the root of your project and add the following content:
-
-```env
-VITE_APP_EMAILJS_SERVICE_ID=
-VITE_APP_EMAILJS_TEMPLATE_ID=
-VITE_APP_EMAILJS_PUBLIC_KEY=
-```
-
-Replace the placeholder values with your actual **[EmailJS](https://www.emailjs.com/)** credentials.
-
-**Running the Project**
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173/) in your browser to view the project.
+Open the local Vite URL shown in the terminal. By default, it is usually:
 
+```text
+http://localhost:5173
+```
 
-## <a name="links">🔗 Assets and Snippets</a>
+Build for production:
 
-Assets and snippets used in the project can be found in the **[video kit](https://jsm.dev/pfolio25-kit)**.
+```bash
+npm run build
+```
 
-<a href="https://jsm.dev/pfolio25-kit" target="_blank">
-  <img src="public/images/readme-video-kit.png" alt="Video Kit Banner">
-</a>
+Preview the production build:
 
+```bash
+npm run preview
+```
 
-## <a name="more">🚀 More</a>
+## Available Scripts
 
-**Advance your skills with JSM Pro Courses**
+```bash
+npm run dev      # Start Vite development server
+npm run build    # Create production build in dist/
+npm run preview  # Preview the production build locally
+npm run lint     # Run ESLint
+```
 
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with
-detailed explanations, cool features, and exercises to boost your skills. Give it a go!
+## Content Configuration
 
-<a href="https://beta.jsmastery.pro/" target="_blank">
-  <img src="public/images/readme-bottom.png" alt="Project Banner">
-</a>
+Most portfolio content is centralized in:
+
+```text
+src/constants/index.js
+```
+
+Update this file to change:
+
+- Navigation links
+- Hero rotating words
+- Counter values
+- Ability cards
+- Tech stack items
+- Backend skill groups
+- Project case studies
+- Experience entries
+- Resume metadata
+- Social links
+
+## Assets
+
+Static files are served from `public/` and referenced with root-relative paths such as:
+
+```text
+/images/emis.png
+/images/ccmkp.png
+/images/pms.png
+/resume/cv.pdf
+```
+
+When replacing assets, keep filenames in sync with the references in `src/constants/index.js` and the section components.
